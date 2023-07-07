@@ -18,5 +18,11 @@ rails new \
   CHANGE_THIS_TO_YOUR_RAILS_APP_NAME
 ```
 
+**Already done**
+- Database created and migrated
+- Devise views copied to app so you can modify them
+- git is initialised
+
 **To do afterwards**
-- Configure Action Mailer production url
+- Configure Action Mailer production url in /config/environments/production.rb on line 4
+- Add git remote and push
