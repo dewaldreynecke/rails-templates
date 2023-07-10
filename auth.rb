@@ -28,17 +28,13 @@ gsub_file(
 # Flashes
 file "app/views/shared/_flashes.html.erb", <<~HTML
   <% if notice %>
-    <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
+    <div>
       <%= notice %>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-      </button>
     </div>
   <% end %>
   <% if alert %>
-    <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
+    <div>
       <%= alert %>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-      </button>
     </div>
   <% end %>
 HTML
