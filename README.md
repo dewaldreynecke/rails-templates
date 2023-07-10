@@ -26,3 +26,4 @@ rails new \
 **To do afterwards**
 - Configure Action Mailer production url in /config/environments/production.rb on line 4
 - Add git remote and push
+- Style your alert messages in app/views/shared/_flashes.html.erb
