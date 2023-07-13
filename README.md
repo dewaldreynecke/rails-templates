@@ -41,3 +41,6 @@ rails new \
   -m https://raw.githubusercontent.com/dewaldreynecke/rails-templates/main/auth.rb \
   CHANGE_THIS_TO_YOUR_RAILS_APP_NAME
 ```
+Run your local development server with
+```bin/dev```
+to take care of both the rails server and webpack.
