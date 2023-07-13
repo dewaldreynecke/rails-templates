@@ -31,8 +31,8 @@ rails new \
 
 ## Webpack with authentication
 
-Same as _Mininal with authentication_ but adds Webpack to handle the JS as SASS etc.
-This is not ideal in 2023, but for quick & dirty it works. **I advise you not to use it.**
+Same as _Mininal with authentication_ but adds Webpack to handle bundling.
+This is not ideal in 2023, but for quick & dirty it works. **I advise you to not use it.**
 
 ```bash
 rails new \
@@ -41,7 +41,3 @@ rails new \
   -m https://raw.githubusercontent.com/dewaldreynecke/rails-templates/main/auth.rb \
   CHANGE_THIS_TO_YOUR_RAILS_APP_NAME
 ```
-**To do afterwards**
-- Configure Action Mailer production url in /config/environments/production.rb on line 4
-- Add git remote and push
-- Style your alert messages in app/views/shared/_flashes.html.erb
