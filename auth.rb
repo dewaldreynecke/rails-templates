@@ -5,7 +5,6 @@ inject_into_file "Gemfile", before: "group :development, :test do" do
   <<~RUBY
     gem "devise"
     gem "autoprefixer-rails"
-    gem "font-awesome-sass", "~> 6.1"
     gem "simple_form", github: "heartcombo/simple_form"
 
   RUBY
@@ -18,7 +17,6 @@ end
 gsub_file("Gemfile", '# gem "sassc-rails"', 'gem "sassc-rails"')
 
 # Layout
-
 gsub_file(
   "app/views/layouts/application.html.erb",
   '<meta name="viewport" content="width=device-width,initial-scale=1">',
@@ -44,6 +42,59 @@ inject_into_file "app/views/layouts/application.html.erb", after: "<body>" do
     <%= render "shared/flashes" %>
   HTML
 end
+
+# Seed file split
+run "mkdir db/seeds"
+
+create_file 'db/seeds/development.rb', <<~TXT
+  # Add the seed actions for the development environment to this file.
+
+  puts "Development seed running."
+
+  # ---------------------- Add your seed code in this block ----------------------
+
+  # ------------------------------------------------------------------------------
+
+  puts "Development seed complete."
+TXT
+
+create_file 'db/seeds/production.rb', <<~TXT
+  # Add the seed actions for the production environment to this file.
+
+  puts "Production seed running."
+
+  # ---------------------- Add your seed code in this block ----------------------
+
+  # ------------------------------------------------------------------------------
+
+  puts "Production seed complete."
+TXT
+
+create_file 'db/seeds/test.rb', <<~TXT
+  # Add the seed actions for the test environment to this file.
+
+  puts "Test seed running."
+
+  # ---------------------- Add your seed code in this block ----------------------
+
+  # ------------------------------------------------------------------------------
+
+  puts "Test seed complete."
+TXT
+
+run "rm db/seeds.rb"
+
+create_file 'db/seeds.rb', <<~RUBY
+  puts "Starting database seed."
+  puts "Current environment is: #{Rails.env.downcase}"
+  load(Rails.root.join( 'db', 'seeds', "#{Rails.env.downcase}.rb"))
+
+  # Do not add any seed command to this file. Instead, go to /db/seeds/ where you will find:
+  # development.rb
+  # production.rb
+  # test.rb
+  # Add your seed code into one of those depending on the environment where you wish for it to execute.
+RUBY
 
 # After bundle
 after_bundle do

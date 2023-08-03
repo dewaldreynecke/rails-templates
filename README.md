@@ -4,12 +4,14 @@ Use these [Rails Templates](http://guides.rubyonrails.org/rails_application_temp
 
 ## Minimal with authentication
 
-A minimum Rails app with Devise for user authentication.
-- Deployment on [Heroku](https://www.heroku.com/)
+A minimum Rails app with Devise for user authentication that sets up the following:
 - PostgreSQL database in Development and Production
-- [Simple form (without Bootstrap)](https://github.com/heartcombo/simple_form)
-- Font Awesome SASS
-- [Autoprefixer Rails](https://github.com/ai/autoprefixer-rails)
+- Adds gem: [Simple form (without Bootstrap)](https://github.com/heartcombo/simple_form)
+- Adds gem: [Autoprefixer Rails](https://github.com/ai/autoprefixer-rails)
+- Adds gem: dotenv-rails
+- Enables gem: sassc-rails
+- Creates alert messages for Devise notices and alerts (see to do below)
+- Splits seed file for Development, Production, and Test environments. [Read more about it here.](https://blog.dewaldreynecke.net/entries/rails-seed-by-enviroment)
 
 ```bash
 rails new \
@@ -22,6 +24,8 @@ rails new \
 - Database created and migrated
 - Devise views copied to app so you can modify them
 - git is initialised
+- .gitignore updated to take care of .DS_Store and .env files
+- Pages controller updated, with home page set as root in routes.rb
 
 **To do afterwards**
 - Configure Action Mailer production url in /config/environments/production.rb on line 4
@@ -32,7 +36,7 @@ rails new \
 ## Webpack with authentication
 
 Same as _Mininal with authentication_ but adds Webpack to handle bundling.
-This is not ideal in 2023, but for quick & dirty it works. **I advise you to not use it.**
+This is not ideal in 2023, but it works. **I advise you to not use it.**
 
 ```bash
 rails new \
