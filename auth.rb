@@ -86,8 +86,8 @@ run "rm db/seeds.rb"
 
 create_file 'db/seeds.rb', <<~RUBY
   puts "Starting database seed."
-  puts "Current environment is: #{Rails.env.downcase}"
-  load(Rails.root.join( 'db', 'seeds', "#{Rails.env.downcase}.rb"))
+  puts "Current environment is: \#{Rails.env.downcase}"
+  load(Rails.root.join( 'db', 'seeds', "\#{Rails.env.downcase}.rb"))
 
   # Do not add any seed command to this file. Instead, go to /db/seeds/ where you will find:
   # development.rb
