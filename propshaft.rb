@@ -37,9 +37,9 @@ file "app/views/shared/_flashes.html.erb", <<~HTML
   <% end %>
 HTML
 
-inject_into_file "app/views/layouts/application.html.erb", after: "<body>" do
+inject_into_file "app/views/layouts/application.html.erb", after: "<body>\n" do
   <<~HTML
-    <%= render "shared/flashes" %>
+      <%= render "shared/flashes" %>
   HTML
 end
 
@@ -56,32 +56,6 @@ CSS
 file "app/assets/stylesheets/components/_index.scss", <<~CSS
   @import "flashes";
 CSS
-
-inject_into_file "app/assets/stylesheets/application.bulma.scss", after: "@import 'bulma/bulma';" do
-  <<~CSS
-    @import "components/index";
-  CSS
-end
-
-file "app/javascript/controllers/flashes_controller.js", <<~JAVASCRIPT
-  import { Controller } from "@hotwired/stimulus"
-
-  // Connects to data-controller="flashes"
-  export default class extends Controller {
-    static targets = ["notification"]
-
-    close() {
-      this.notificationTarget.classList.add("is-invisible")
-    }
-  }
-JAVASCRIPT
-
-inject_into_file "app/javascript/controllers/index.js", after: 'import { application } from "./application"' do
-  <<~JAVASCRIPT
-    import FlashesController from "./flashes_controller"
-    application.register("flashes", FlashesController)
-  JAVASCRIPT
-end
 
 
 # Seed file split
@@ -139,6 +113,13 @@ RUBY
 
 # After bundle
 after_bundle do
+  # Link up the scss files created for the Flashes
+  inject_into_file "app/assets/stylesheets/application.bulma.scss", after: "@import 'bulma/bulma';\n" do
+    <<~CSS
+      @import "components/index";
+    CSS
+  end
+
   # Generators: db + simple form + pages controller
   rails_command "db:drop db:create db:migrate"
   generate("simple_form:install")
@@ -203,6 +184,18 @@ after_bundle do
       end
     end
   RUBY
+
+  # Stimulus controller for the Flashes
+  generate "stimulus", "flashes"
+
+  inject_into_file "app/javascript/controllers/flashes_controller.js", after: "export default class extends Controller {\n" do <<~JAVASCRIPT
+      static targets = ["notification"]
+
+        close() {
+          this.notificationTarget.classList.add("is-invisible")
+        }
+    JAVASCRIPT
+  end
 
   # Environments
   environment 'config.action_mailer.default_url_options = { host: "http://localhost:3000" }', env: "development"
