@@ -179,5 +179,5 @@ after_bundle do
   # Git
   git :init
   git add: "."
-  git commit: "-m 'Rails new with dewaldreynecke auth template.'"
+  git commit: "-m 'Rails new with https://github.com/dewaldreynecke/rails-templates (Minimal with authentication)'"
 end

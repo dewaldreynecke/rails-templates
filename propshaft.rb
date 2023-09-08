@@ -210,5 +210,5 @@ after_bundle do
   # Git
   git :init
   git add: "."
-  git commit: "-m 'Rails new with dewaldreynecke Propshaft & Bulma template.'"
+  git commit: "-m 'Rails new with https://github.com/dewaldreynecke/rails-templates (Propshaft & Bulma)'"
 end
