@@ -43,7 +43,7 @@ on the close button.
 rails new \
   -d postgresql \
   -j esbuild \
-  -css bulma \
+  --css bulma \
   -a propshaft \
   -m https://raw.githubusercontent.com/dewaldreynecke/rails-templates/main/propshaft.rb \
   CHANGE_THIS_TO_YOUR_RAILS_APP_NAME
