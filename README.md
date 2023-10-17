@@ -3,9 +3,51 @@
 Use these [Rails Templates](http://guides.rubyonrails.org/rails_application_templates.html)
 to generate new Rails 7 apps.
 
-I make these for my own use and thus add here from time to time. I will never
-change an older one (in case someone likes to use it), except for making the README
-nicer or bug fixes. New ones to the top of this README.
+I make these for my own use and thus add here from time to time. New ones to the top of this README.
+
+## Late 2023 – Propshaft and Tailwind
+
+| Created | Last update |
+| -- | -- |
+| 13 October 2023 | 17 October 2023 |
+
+### Highlights
+- No bundler for Javascript, using Importmaps instead. Find the documentation [here](https://guides.rubyonrails.org/working_with_javascript_in_rails.html) and an explainer [here](https://blog.appsignal.com/2022/03/02/import-maps-under-the-hood-in-rails-7.html)
+- Tailwind for CSS
+- Propshaft to handle the asset pipeline.
+- You can use `<% html_class "yoour fancy styles here" %>` and `<% body_class "probably tailwind classes here" %>` in any `.html.erb` file to add classes to the html and body elements for styling.
+
+_Other details_
+- PostgreSQL database in Development and Production
+- Adds gem: [Simple form (without Bootstrap)](https://github.com/heartcombo/simple_form)
+- Adds gem: dotenv-rails
+- Creates alert messages/flashes and styles them plus create and connect a Stimulus controller to handle a click on the close button.
+- Splits seed file for Development, Production, and Test environments. [Read more about it here.](https://blog.dewaldreynecke.net/entries/rails-seed-by-enviroment)
+
+### Already done
+- Database created and migrated
+- Devise views copied to app so you can modify them
+- git is initialised
+- .gitignore updated to take care of .DS_Store and .env files
+- Pages controller updated, with home page set as root in routes.rb
+
+### To do afterwards
+- Configure Action Mailer production url in /config/environments/production.rb on line 4
+- Add git remote and push
+- If you are using VScode be sure to add the [Tailwind CSS Intellisense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) extension
+
+### Commands
+
+```bash
+rails new \
+  -d postgresql \
+  --css tailwind \
+  -a propshaft \
+  -m https://raw.githubusercontent.com/dewaldreynecke/rails-templates/main/tailwind.rb \
+  CHANGE_THIS_TO_YOUR_RAILS_APP_NAME
+```
+Run your local development server with
+```bin/dev```
 
 ## With propshaft and Bulma (incl Devise auth)
 
