@@ -9,7 +9,7 @@ I make these for my own use and thus add here from time to time. New ones to the
 
 | Created | Last update |
 | -- | -- |
-| 13 October 2023 | 17 October 2023 |
+| 13 October 2023 | 19 October 2023 |
 
 ### Highlights
 - No bundler for Javascript, using Importmaps instead. Find the documentation [here](https://guides.rubyonrails.org/working_with_javascript_in_rails.html) and an explainer [here](https://blog.appsignal.com/2022/03/02/import-maps-under-the-hood-in-rails-7.html)
