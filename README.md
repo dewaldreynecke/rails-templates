@@ -15,7 +15,7 @@ I make these for my own use and thus add here from time to time. New ones to the
 - No bundler for Javascript, using Importmaps instead. Find the documentation [here](https://guides.rubyonrails.org/working_with_javascript_in_rails.html) and an explainer [here](https://blog.appsignal.com/2022/03/02/import-maps-under-the-hood-in-rails-7.html)
 - Tailwind for CSS
 - Propshaft to handle the asset pipeline.
-- You can use `<% html_class "yoour fancy styles here" %>` and `<% body_class "probably tailwind classes here" %>` in any `.html.erb` file to add classes to the html and body elements for styling.
+- You can use `<% html_class "your fancy styles here" %>` and `<% body_class "probably tailwind classes here" %>` in any `.html.erb` file to add classes to the html and body elements for styling.
 
 _Other details_
 - PostgreSQL database in Development and Production
