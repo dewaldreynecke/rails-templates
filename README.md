@@ -22,7 +22,7 @@ _Other details_
 - Adds gem: [Simple form (without Bootstrap)](https://github.com/heartcombo/simple_form)
 - Adds gem: dotenv-rails
 - Creates alert messages/flashes and styles them plus create and connect a Stimulus controller to handle a click on the close button.
-- Splits seed file for Development, Production, and Test environments. [Read more about it here.](https://blog.dewaldreynecke.net/entries/rails-seed-by-enviroment)
+- Splits seed file for Development, Production, and Test environments. [Read more about it here.](https://www.dewaldreynecke.net/articles/split-your-ror-seeds-by-environment.html)
 
 ### Already done
 - Database created and migrated
