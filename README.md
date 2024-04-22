@@ -5,6 +5,25 @@ to generate new Rails 7 apps.
 
 I make these for my own use and thus add here from time to time. New ones to the top of this README.
 
+## No-auth
+
+| Created | 22 April 2024 ||
+| -- | -- | -- |
+
+This is the same as the _esbuild edition_, except without Devise. This was made
+for a project that required custom authentication that I was going to hand-build.
+
+### Commands
+
+```bash
+rails new \
+  -d postgresql \
+  --javascript esbuild \
+  --css tailwind \
+  -m https://raw.githubusercontent.com/dewaldreynecke/rails-templates/main/no_auth.rb \
+  CHANGE_THIS_TO_YOUR_RAILS_APP_NAME
+```
+
 ## The esbuild edition
 
 | Created | 2 March 2024 ||
@@ -23,7 +42,7 @@ This was developed, and only tested on, macOS.
 - Tailwind for CSS (updated to use @import instead of @tailwind) with *forms* and *typography* plugins added
 - Sprockets for asset pipeline
 - SolidQueue is set up to run in the Puma process in Production so no separate server needed for background jobs. You might grow out of this eventually for performance reasons. In Development in runs as separate process.
-- Mission Control is available to monitor SolidQueue at /jobs for authenticated users. You can restrict that further in MissionController if you have different classes of users (for example admins). 
+- Mission Control is available to monitor SolidQueue at /jobs for authenticated users. You can restrict that further in MissionController if you have different classes of users (for example admins).
 - You can use `<% html_class "your fancy styles here" %>` and `<% body_class "probably tailwind classes here" %>` in any `.html.erb` file to add classes to the html and body elements for styling.
 
 _Other details_
